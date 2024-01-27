@@ -26,9 +26,12 @@ func (r Results) ToJSON() JSONBytes {
 
 // Result represents a set of metrics for a singular run.
 type Result struct {
+	// StartTime will be marshalled as RFC3339nano.
 	StartTime time.Time `dynamodbav:"StartTime" json:"start_time,omitempty"`
-	EndTime   time.Time `dynamodbav:"EndTime" json:"end_time,omitempty"`
-	TotalTime int64     `dynamodbav:"TotalTime" json:"total_time,omitempty"`
+	// EndTime will be marshalled as RFC3339nano.
+	EndTime time.Time `dynamodbav:"EndTime" json:"end_time,omitempty"`
+	// TotalTime is measured in microseconds.
+	TotalTime int64 `dynamodbav:"TotalTime" json:"total_time,omitempty"`
 }
 
 // Run will execute a given function and measure/record metrics associated with that function for a given name.
