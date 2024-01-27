@@ -26,8 +26,8 @@ func (r Results) ToJSON() JSONBytes {
 
 // Result represents a set of metrics for a singular run.
 type Result struct {
-	StartTime time.Time `dynamodbav:"StartTime,unixtime" json:"start_time,omitempty"`
-	EndTime   time.Time `dynamodbav:"EndTime,unixtime" json:"end_time,omitempty"`
+	StartTime time.Time `dynamodbav:"StartTime" json:"start_time,omitempty"`
+	EndTime   time.Time `dynamodbav:"EndTime" json:"end_time,omitempty"`
 	TotalTime int64     `dynamodbav:"TotalTime" json:"total_time,omitempty"`
 }
 
